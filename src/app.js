@@ -51,13 +51,13 @@ app.get('/weather',(req,res)=>{
                 errmsg:err
             })
         }
-        forecast(latitude,longitude,(err,{summary,temp,rainChance})=>{
+        forecast(latitude,longitude,(err,{temperatureHigh, temperatureLow, summary,temp,rainChance})=>{
             if(err){
                 return res.send({
                     errmsg:err
                 })
             }
-            const sForecast = summary + ' Today has a high temperature of ' + temp + ' degrees and ' + rainChance + '% chance of rain'
+            const sForecast = summary + ' Today has a high temperature of ' + temp + ' degrees and ' + rainChance + '% chance of rain. The Hi will be '+temperatureHigh+' degrees and the Lo of '+temperatureLow+' degrees'
             res.send({
                 location:location,
                 weather:sForecast

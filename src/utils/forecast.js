@@ -11,6 +11,8 @@ const forecast = (latitude,longitude,callback)=>{
             callback(body.error,undefined)
         }else{
            callback(undefined,{
+               temperatureHigh:body.daily.data[0].temperatureHigh,
+               temperatureLow:body.daily.data[0].temperatureLow,
                summary: body.daily.data[0].summary,
                temp: body.currently.temperature,
                rainChance: body.currently.precipProbability 
@@ -18,5 +20,10 @@ const forecast = (latitude,longitude,callback)=>{
         }
     })
 }
+
+//function test
+// forecast('71.9876','-156.9834',(err,data)=>{
+//     // console.log(data)
+// })
 
 module.exports = forecast
