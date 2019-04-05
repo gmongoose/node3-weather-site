@@ -19,11 +19,10 @@ weatherForm.addEventListener('submit',(e)=>{
     res.json().then((data)=>{
         msg1.textContent = ''
         if(data.errmsg){
-            console.log(data.errmsg)
+ 
             msg2.textContent = data.errmsg
         }else{
-            console.log(data.location)
-            console.log(data.weather)
+
             msg1.textContent = data.location
             msg2.textContent = data.weather
         }
